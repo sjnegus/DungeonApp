@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class weapon
+    public class Weapon
     {
+        private WeaponType _weaponType;
         private int _minDamage;
         private int _maxDamage;
         private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
 
+        public WeaponType WeaponType
+        {
+            get { return _weaponType; }
+            set { _weaponType = value; }
+        }
         public int MaxDamage
         { 
             get { return _maxDamage; } 
@@ -54,19 +60,20 @@ namespace DungeonLibrary
             } 
         }
 
-        public Weapon(string name, int maxDamage, int minDamage, int bonusHitChance, bool isTwoHanded)
+        public Weapon(string name, int maxDamage, int minDamage, int bonusHitChance, bool isTwoHanded, WeaponType weaponType)
         {
             Name = name;
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
+            WeaponType = weaponType;
         }
 
-        public override string ToString() 
+        public override string ToString()
         {
-            return string.Format($"{Name}\nDamage: {MinDamage} - {MaxDamage}\nBonus Hit: {BonusHitChance}\n" +
-                $"Type: {(IsTwoHanded ? "Two Handed" : "One Handed")}")
+            return string.Format($"{Name}\nWeapon Type: {WeaponType}\nDamage: {MinDamage} - {MaxDamage}\nBonus Hit: {BonusHitChance}\n" +
+                $"Type: {(IsTwoHanded ? "Two Handed" : "One Handed")}");
         }
 
 
