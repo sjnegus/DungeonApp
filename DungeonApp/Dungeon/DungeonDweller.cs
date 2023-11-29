@@ -38,10 +38,11 @@ namespace DungeonApp
 
             do
             {
+                Console.WriteLine(GetRoom());
                 bool inner = false;
                 do
                 {
-                    Console.WriteLine("You entered a room with a horde of bats. How do you proceed?\n" +
+                    Console.WriteLine("How do you proceed?\n" +
                         "A) Attack\n" +
                         "R) Run\n" +
                         "C) Character Info\n" +
@@ -98,7 +99,20 @@ namespace DungeonApp
             #endregion
         }
         #region Create GetRoom() Functionality
-        //TODO Create GetRoom()
+        public static string GetRoom()
+        {
+            string[] rooms =
+            {
+                "The room is dark and musty with the smell of lost souls.", 
+                "You enter a quiet library... silence... nothing but silence....", 
+                "You arrive in a room filled with chairs and a ticket stub machine... the dreaded DMV",
+                "You entered a room with a horde of bats."
+            };
+            Random roomRand = new Random();
+            int index = roomRand.Next(rooms.Length);
+            string room = rooms[index];
+            return room;
+        }
         #endregion
     }
 
