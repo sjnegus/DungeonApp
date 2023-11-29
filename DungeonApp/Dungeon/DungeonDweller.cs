@@ -1,4 +1,12 @@
-﻿namespace DungeonApp
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DungeonLibrary;
+
+
+namespace DungeonApp
 {
     class Dungeon
     {
@@ -6,9 +14,8 @@
         {
 
             #region Title/Intro
-            Console.Title = "DUNGEON DWELLER!!!";
-            Console.WriteLine("Welcome to Dungeon Dweller!");
-
+            TitleIntro.Header("DUNGEON DWELLER");
+            Console.WriteLine("Welcome to Underworld.\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
             #endregion
 
             #region Variable to keep score
