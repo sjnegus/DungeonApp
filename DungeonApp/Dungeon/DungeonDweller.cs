@@ -42,34 +42,34 @@ namespace DungeonApp
             switch (userWeapon)
             {
                 case WeaponType.Dagger:
-                    Console.WriteLine("Flamethorn, a legendary dagger said to compel its bearer to defeat Gudaga the Crimson.");
+                    Console.WriteLine("Flamethorn, a legendary dagger said to compel its bearer to defeat Gudaga the Crimson.\n");
                     break;
                 case WeaponType.Broadsword:
-                    Console.WriteLine("Fiendblade, a masterwork broadsword engraved with the holy symbol of a war god.");
+                    Console.WriteLine("Fiendblade, a masterwork broadsword engraved with the holy symbol of a war god.\n");
                     break;
                 case WeaponType.Bow:
-                    Console.WriteLine("Lawtooth, a masterwork longbow said to be imbued with the spirit of the illustrious fighter Nelalwe. It once belonged to the great archer who fell in the War of Malefic Rings.");
+                    Console.WriteLine("Lawtooth, a masterwork longbow said to be imbued with the spirit of the illustrious fighter Nelalwe. It once belonged to the great archer who fell in the War of Malefic Rings.\n");
                     break;
                 case WeaponType.Sceptre:
-                    Console.WriteLine("Drakehammer, a magical flail said to lead the one who wields it to wealth and glory");
+                    Console.WriteLine("Drakehammer, a magical flail said to lead the one who wields it to wealth and glory\n");
                     break;
                 case WeaponType.Claw:
-                    Console.WriteLine("Ghoulclaw, a magical halberd inlaid with mithral. It is said to have been created to slay the Serpent of Underworld.");
+                    Console.WriteLine("Ghoulclaw, a magical halberd inlaid with mithral. It is said to have been created to slay the Serpent of Underworld.\n");
                     break;
                 case WeaponType.Wand:
-                    Console.WriteLine("Corrupt Storm, a magical wand which once belonged to the great warrior Aisen, who fell in the Bloody Campaign.");
+                    Console.WriteLine("Corrupt Storm, a magical wand which once belonged to the great warrior Aisen, who fell in the Bloody Campaign.\n");
                     break;
                 case WeaponType.Staff:
-                    Console.WriteLine("Abyssal Vengeance, a mythical staff engraved with the holy symbol of a war god. It is said to be the key to open the Hell Gate of the Shadowy Mire.");
+                    Console.WriteLine("Abyssal Vengeance, a mythical staff engraved with the holy symbol of a war god. It is said to be the key to open the Hell Gate of the Shadowy Mire.\n");
                     break;
                 case WeaponType.Axe:
-                    Console.WriteLine("Wraithrazor, a mythical battleaxe which once belonged to the illustrious warrior Amivy, who perished in the Desolation of Gudama.");
+                    Console.WriteLine("Wraithrazor, a mythical battleaxe which once belonged to the illustrious warrior Amivy, who perished in the Desolation of Gudama.\n");
                     break;
                 case WeaponType.Club:
-                    Console.WriteLine("Fallen Vengeance, a legendary club which was created by the dwarves of the great empire of Khola.");
+                    Console.WriteLine("Fallen Vengeance, a legendary club which was created by the dwarves of the great empire of Khola.\n");
                     break;
                 case WeaponType.Crowbar:
-                    Console.WriteLine("Celestial Storm, a finely crafted bar engraved with runes of death. It once belonged to the legendary ranger Tholmge, who perished in the Caro Jungle.");
+                    Console.WriteLine("Celestial Storm, a finely crafted bar engraved with runes of death. It once belonged to the legendary ranger Tholmge, who perished in the Caro Jungle.\n");
                     break;
                 default:
                     break;
@@ -90,7 +90,7 @@ namespace DungeonApp
                 bool inner = false;
                 do
                 {
-                    Console.WriteLine("\n\nHow do you proceed?\n" +
+                    Console.WriteLine("\nHow do you proceed?\n" +
                         "A) Attack\n" +
                         "R) Run\n" +
                         "C) Character Info\n" +
