@@ -53,7 +53,7 @@ namespace DungeonLibrary
             }
         }
 
-        public CHaracter(string name, int maxlife, int hitChance, int block, int life)
+        public Character(string name, int maxlife, int hitChance, int block, int life)
         {
             Name = name;
             MaxLife = maxlife;

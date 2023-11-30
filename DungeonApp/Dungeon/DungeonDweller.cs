@@ -15,7 +15,7 @@ namespace DungeonApp
 
             #region Title/Intro
             TitleIntro.Header("DUNGEON DWELLER");
-            Console.WriteLine("Welcome to Underworld.\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
+            Console.WriteLine("\n\nWelcome to Underworld.\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
             #endregion
 
             #region Variable to keep score
@@ -25,7 +25,55 @@ namespace DungeonApp
 
             #region Weapon
 
-            //TODO create weapon
+            Console.Write("To continue, please choose your Weapon from the list below (enter number only):\n\n");
+
+            int index = 0;
+
+            foreach (var item in Enum.GetValues(typeof(WeaponType)))
+            {
+                Console.WriteLine(index + " - " + item);
+                index++;
+            }
+
+            int userInput = int.Parse(Console.ReadLine());
+
+            WeaponType userWeapon = (WeaponType)userInput;
+
+            switch (userWeapon)
+            {
+                case WeaponType.Dagger:
+                    Console.WriteLine("Flamethorn, a legendary dagger said to compel its bearer to defeat Gudaga the Crimson.");
+                    break;
+                case WeaponType.Broadsword:
+                    Console.WriteLine("Fiendblade, a masterwork broadsword engraved with the holy symbol of a war god.");
+                    break;
+                case WeaponType.Bow:
+                    Console.WriteLine("Lawtooth, a masterwork longbow said to be imbued with the spirit of the illustrious fighter Nelalwe. It once belonged to the great archer who fell in the War of Malefic Rings.");
+                    break;
+                case WeaponType.Sceptre:
+                    Console.WriteLine("Drakehammer, a magical flail said to lead the one who wields it to wealth and glory");
+                    break;
+                case WeaponType.Claw:
+                    Console.WriteLine("Ghoulclaw, a magical halberd inlaid with mithral. It is said to have been created to slay the Serpent of Underworld.");
+                    break;
+                case WeaponType.Wand:
+                    Console.WriteLine("Corrupt Storm, a magical wand which once belonged to the great warrior Aisen, who fell in the Bloody Campaign.");
+                    break;
+                case WeaponType.Staff:
+                    Console.WriteLine("Abyssal Vengeance, a mythical staff engraved with the holy symbol of a war god. It is said to be the key to open the Hell Gate of the Shadowy Mire.");
+                    break;
+                case WeaponType.Axe:
+                    Console.WriteLine("Wraithrazor, a mythical battleaxe which once belonged to the illustrious warrior Amivy, who perished in the Desolation of Gudama.");
+                    break;
+                case WeaponType.Club:
+                    Console.WriteLine("Fallen Vengeance, a legendary club which was created by the dwarves of the great empire of Khola.");
+                    break;
+                case WeaponType.Crowbar:
+                    Console.WriteLine("Celestial Storm, a finely crafted bar engraved with runes of death. It once belonged to the legendary ranger Tholmge, who perished in the Caro Jungle.");
+                    break;
+                default:
+                    break;
+            }
 
             #endregion
 
@@ -42,7 +90,7 @@ namespace DungeonApp
                 bool inner = false;
                 do
                 {
-                    Console.WriteLine("How do you proceed?\n" +
+                    Console.WriteLine("\n\nHow do you proceed?\n" +
                         "A) Attack\n" +
                         "R) Run\n" +
                         "C) Character Info\n" +
