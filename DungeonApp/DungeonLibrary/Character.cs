@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Character
+    public class Character
     {
+        // -- FIELDS --
+
         private int _life;
         private string _name;
         private int _hitChance;
         private int _block;
         private int _maxLife;
 
+        // -- PROPERTIES -- 
         public string Name
         { 
             get { return _name; } 
@@ -53,14 +56,18 @@ namespace DungeonLibrary
             }
         }
 
-        public Character(string name, int maxlife, int hitChance, int block, int life)
+        // -- CONSTRUCTORS --
+
+        public Character(string name, int maxLife, int hitChance, int block, int life)
         {
             Name = name;
-            MaxLife = maxlife;
+            MaxLife = maxLife;
             HitChance = hitChance;  
             Block = block;  
             Life = life;
         }
+
+        // -- METHODS --
 
         public override string ToString()
         {
