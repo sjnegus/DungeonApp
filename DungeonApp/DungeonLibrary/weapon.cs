@@ -8,17 +8,17 @@ namespace DungeonLibrary
 {
     public class Weapon
     {
-        private WeaponType _weaponType;
+        private WeaponType _type;
         private int _minDamage;
         private int _maxDamage;
         private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
 
-        public WeaponType WeaponType
+        public WeaponType Type
         {
-            get { return _weaponType; }
-            set { _weaponType = value; }
+            get { return _type; }
+            set { _type = value; }
         }
         public int MaxDamage
         { 
@@ -60,22 +60,27 @@ namespace DungeonLibrary
             } 
         }
 
-        public Weapon(string name, int maxDamage, int minDamage, int bonusHitChance, bool isTwoHanded, WeaponType weaponType)
+        public Weapon(string name, int maxDamage, int minDamage, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
             Name = name;
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
-            WeaponType = weaponType;
+            Type = type;
         }
 
+        public Weapon()
+        {
+            
+        }
         public override string ToString()
         {
-            return string.Format($"{Name}\nWeapon Type: {WeaponType}\nDamage: {MinDamage} - {MaxDamage}\nBonus Hit: {BonusHitChance}\n" +
+            return string.Format($"{Name}\nWeapon Type: {Type}\nDamage: {MinDamage} - {MaxDamage}\nBonus Hit: {BonusHitChance}\n" +
                 $"Type: {(IsTwoHanded ? "Two Handed" : "One Handed")}");
         }
 
+       
 
     }
 

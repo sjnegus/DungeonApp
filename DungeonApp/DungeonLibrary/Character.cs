@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Character
+    // The "abstract" modifier Denotes this datatype class is "incomplete" -- we don't intend to have "characters", and we instead only want the more specific child classes in our game (Player & Monster). Abstract makes it so we cannot create just a character -- it must be more specific
+    public abstract class Character
     {
         // -- FIELDS --
 
@@ -75,5 +76,14 @@ namespace DungeonLibrary
             return string.Format($"{Name}\nHP: {Life}/{MaxLife}\nHit Chance: {HitChance}\nBlock: {Block}");
         }
 
+        public virtual int CalcBlock()
+        { return _block; }
+
+        public virtual int CalcHitChance()
+        { return HitChance; }
+        public virtual int CalcDamage()
+        {
+            return 0;
+        }
     }
 }

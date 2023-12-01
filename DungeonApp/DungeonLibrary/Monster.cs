@@ -12,6 +12,7 @@ namespace DungeonLibrary
         private int _maxDamage;
         private int _minDamage;
 
+
         // -- PROPERTIES -- 
 
         public int MinDamage
@@ -22,13 +23,13 @@ namespace DungeonLibrary
             }
             set
             {
-                if (value >= _maxDamage)
+                if (value > 0 && value <= MaxDamage)
                 {
                     _minDamage = value;
                 }
                 else
                 {
-                    _minDamage = MaxDamage;
+                    _minDamage = 1;
                 }
             }
         }
@@ -38,11 +39,11 @@ namespace DungeonLibrary
 
         // -- CONSTRUCTORS --
 
-        public Monster(MonsterType getMonsterType, string name, int maxLife, int hitChance, int block, int life, int minDamage, int maxDamage, string description)
+        public Monster(MonsterType getMonsterType, string name, int maxLife, int hitChance, int block, int life, int maxDamage, int minDamage, string description)
             : base(name, maxLife, hitChance, block, life)
         {
-            MinDamage = minDamage;
             MaxDamage = maxDamage;
+            MinDamage = minDamage;
             Description = description;
             GetMonsterType = getMonsterType;
         }
@@ -51,7 +52,15 @@ namespace DungeonLibrary
 
         public override string ToString()
         {
-            return string.Format($"{Name}\n{GetMonsterType}\n\nHP: {Life}/{MaxLife}\nDamage: {MinDamage} - {MaxDamage}\nBlock Chance: {Block}\nDescription: {Description}");
+            return string.Format($"**** MONSTER ****\n{Name}\n{GetMonsterType}\n\nHP: {Life}/{MaxLife}\nDamage: {MinDamage} - {MaxDamage}\nBlock Chance: {Block}\nDescription: {Description}");
+        }
+
+        public override int CalcDamage()
+        {
+            Random rand = new Random();
+
+            return rand.Next(MinDamage, MaxDamage + 1);
+
         }
 
 

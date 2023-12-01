@@ -14,7 +14,9 @@ namespace DungeonLibrary
         Orcs,
         Goblins,
         Skeletons,
-        Witch
+        Witch, 
+        Rabbit,
+
 
     }
 }
