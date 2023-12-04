@@ -38,7 +38,7 @@ namespace DungeonLibrary
 
                 // Output the result - Red text helps indicate damage
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("{ 0} hit { 1} for { 2} damage!", attacker.Name, defender.Name, damageDealt);
+                Console.WriteLine("{0} hit {1} for {2} damage!", attacker.Name, defender.Name, damageDealt);
 
                 Console.ResetColor();
 

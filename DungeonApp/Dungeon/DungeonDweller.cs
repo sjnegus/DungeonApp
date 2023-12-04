@@ -144,7 +144,8 @@ namespace Dungeon
             #endregion
 
             #region Player
-            Player player = new Player("Leroy Jenkins", 70, 5, 40, 40, Race.Human, weapon);
+            Player player = new Player("Leroy Jenkins", 50, 75, 40, 50, Race.Human, weapon);
+            Console.WriteLine(player);
             #endregion
 
 
@@ -153,10 +154,10 @@ namespace Dungeon
             do
             {
 
-                 Rabbit rabbit = new Rabbit(rabbit, "white rabbit", 50, 25, 25, 50, 20, 2, "rabbit", true);
-                 Rabbit rabbit2 = new Rabbit(rabbit2, "white rabbit", 50, 25, 25, 50, 20, 2, "rabbit", true);
+                 Rabbit rabbit = new Rabbit(MonsterType.Rabbit, "Terry the Tooth", 50, 20, 20, 50, 15, 10, "This is no normal rabbit!", true);
+                 Rabbit rabbit2 = new Rabbit(MonsterType.Rabbit, "white rabbit", 50, 25, 25, 50, 20, 2, "rabbit", true);
 
-                 Vampire vampire = new Vampire( "Vampire", 50, 15, 15, 50, 10, 5, "bad mf");
+                 Vampire vampire = new Vampire(MonsterType.Vampire, "Vampire", 50, 15, 15, 50, 10, 5, "bad mf");
 
                 Monster[] monsters = {rabbit, rabbit2, vampire}; 
 
@@ -304,7 +305,8 @@ namespace Dungeon
                 "The room is dark and musty with the smell of lost souls.", 
                 "You enter a quiet library... silence... nothing but silence....", 
                 "You arrive in a room filled with chairs and a ticket stub machine... the dreaded DMV",
-                "You entered a room with a horde of bats."
+                "You entered a room with a horde of bats.",
+                "You are in a dark corridor, only lit by candleflame and spell light. Chanting fills the corridor."
             };
             Random roomRand = new Random();
             int index = roomRand.Next(rooms.Length);

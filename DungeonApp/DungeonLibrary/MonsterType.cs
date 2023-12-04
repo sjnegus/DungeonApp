@@ -16,6 +16,8 @@ namespace DungeonLibrary
         Skeletons,
         Witch, 
         Rabbit,
+        Turtle,
+        Vampire
 
 
     }
