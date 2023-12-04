@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Rabbit : Monster
+    public sealed class Rabbit : Monster
     {
         public bool IsFluffy { get; set; }
 

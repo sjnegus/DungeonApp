@@ -16,6 +16,9 @@ namespace Dungeon
             #region Title/Intro
             TitleIntro.Header("DUNGEON DWELLER");
             Console.WriteLine("\n\nWelcome to Underworld.\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey(true);
+            Console.Clear();
             #endregion
 
             #region Variable to keep score
@@ -25,7 +28,7 @@ namespace Dungeon
 
             #region Weapon
 
-            Console.Write("To continue, please choose your Weapon from the list below (enter number only):\n\n");
+            Console.Write("Please choose your Weapon from the list below (enter number only):\n\n");
 
             int index = 0;
 
@@ -45,7 +48,7 @@ namespace Dungeon
             switch (userWeapon)
             {
                 case WeaponType.Dagger:
-                    Console.WriteLine("Flamethorn, a legendary dagger said to compel its bearer to defeat Gudaga the Crimson.\n");
+                    Console.WriteLine("You selected Flamethorn, a legendary dagger said to compel its bearer to defeat Gudaga the Crimson.\n");
                     //Weapon flamethorn = new Weapon("Flamethorn", 6, 2, 15, false, WeaponType.Dagger);
                     weapon.Name = "Flamethorn";
                     weapon.MaxDamage = 6;
@@ -56,7 +59,7 @@ namespace Dungeon
                     
                     break;
                 case WeaponType.Broadsword:
-                    Console.WriteLine("Fiendblade, a masterwork broadsword engraved with the holy symbol of a war god.\n");
+                    Console.WriteLine("You selected Fiendblade, a masterwork broadsword engraved with the holy symbol of a war god.\n");
                     //Weapon weapon = new Weapon("Flamethorn", 6, 2, 15, false, WeaponType.Dagger);
                     weapon.Name = "Fiendblade";
                     weapon.MaxDamage = 7;
@@ -66,7 +69,7 @@ namespace Dungeon
                     weapon.Type= WeaponType.Broadsword;
                     break;
                 case WeaponType.Bow:
-                    Console.WriteLine("Lawtooth, a masterwork longbow said to be imbued with the spirit of the illustrious fighter Nelalwe. It once belonged to the great archer who fell in the War of Malefic Rings.\n");
+                    Console.WriteLine("You selected Lawtooth, a masterwork longbow said to be imbued with the spirit of the illustrious fighter Nelalwe. It once belonged to the great archer who fell in the War of Malefic Rings.\n");
                     weapon.Name = "Lawtooth";
                     weapon.MaxDamage = 5;
                     weapon.MinDamage = 0;
@@ -75,7 +78,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Bow;
                     break;
                 case WeaponType.Sceptre:
-                    Console.WriteLine("Drakehammer, a magical flail said to lead the one who wields it to wealth and glory\n");
+                    Console.WriteLine("You selected Drakehammer, a magical flail said to lead the one who wields it to wealth and glory\n");
                     weapon.Name = "Drakehammer";
                     weapon.MaxDamage = 5;
                     weapon.MinDamage = 1;
@@ -84,7 +87,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Sceptre;
                     break;
                 case WeaponType.Claw:
-                    Console.WriteLine("Ghoulclaw, a magical halberd inlaid with mithral. It is said to have been created to slay the Serpent of Underworld.\n");
+                    Console.WriteLine("You selected Ghoulclaw, a magical halberd inlaid with mithral. It is said to have been created to slay the Serpent of Underworld.\n");
                     weapon.Name = "Ghoulclaw";
                     weapon.MaxDamage = 4;
                     weapon.MinDamage = 0;
@@ -93,7 +96,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Claw;
                     break;
                 case WeaponType.Wand:
-                    Console.WriteLine("Corrupt Storm, a magical wand which once belonged to the great warrior Aisen, who fell in the Bloody Campaign.\n");
+                    Console.WriteLine("You selected Corrupt Storm, a magical wand which once belonged to the great warrior Aisen, who fell in the Bloody Campaign.\n");
                     weapon.Name = "Corrupt Storm";
                     weapon.MaxDamage = 3;
                     weapon.MinDamage = 0;
@@ -102,7 +105,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Wand;
                     break;
                 case WeaponType.Staff:
-                    Console.WriteLine("Abyssal Vengeance, a mythical staff engraved with the holy symbol of a war god. It is said to be the key to open the Hell Gate of the Shadowy Mire.\n");
+                    Console.WriteLine("You selected Abyssal Vengeance, a mythical staff engraved with the holy symbol of a war god. It is said to be the key to open the Hell Gate of the Shadowy Mire.\n");
                     weapon.Name = "Abyssal Vengeance";
                     weapon.MaxDamage = 6;
                     weapon.MinDamage = 1;
@@ -111,7 +114,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Staff;
                     break;
                 case WeaponType.Axe:
-                    Console.WriteLine("Wraithrazor, a mythical battleaxe which once belonged to the illustrious warrior Amivy, who perished in the Desolation of Gudama.\n");
+                    Console.WriteLine("You selected Wraithrazor, a mythical battleaxe which once belonged to the illustrious warrior Amivy, who perished in the Desolation of Gudama.\n");
                     weapon.Name = "Wraithrazor";
                     weapon.MaxDamage = 10;
                     weapon.MinDamage = 2;
@@ -120,7 +123,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Axe;
                     break;
                 case WeaponType.Club:
-                    Console.WriteLine("Fallen Vengeance, a legendary club which was created by the dwarves of the great empire of Khola.\n");
+                    Console.WriteLine("You selected Fallen Vengeance, a legendary club which was created by the dwarves of the great empire of Khola.\n");
                     weapon.Name = "Fallen Vengeance";
                     weapon.MaxDamage = 9;
                     weapon.MinDamage = 2;
@@ -129,7 +132,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Club;
                     break;
                 case WeaponType.Crowbar:
-                    Console.WriteLine("Celestial Storm, a finely crafted bar engraved with runes of death. It once belonged to the legendary ranger Tholmge, who perished in the Caro Jungle.\n");
+                    Console.WriteLine("You selected Celestial Storm, a finely crafted bar engraved with runes of death. It once belonged to the legendary ranger Tholmge, who perished in the Caro Jungle.\n");
                     weapon.Name = "Celestial Storm";
                     weapon.MaxDamage = 7;
                     weapon.MinDamage = 1;
@@ -147,19 +150,25 @@ namespace Dungeon
             Player player = new Player("Leroy Jenkins", 50, 75, 40, 50, Race.Human, weapon);
             Console.WriteLine(player);
             #endregion
-
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey(true);
+            Console.Clear();
 
             bool main = false;
 
             do
             {
 
-                 Rabbit rabbit = new Rabbit(MonsterType.Rabbit, "Terry the Tooth", 50, 20, 20, 50, 15, 10, "This is no normal rabbit!", true);
-                 Rabbit rabbit2 = new Rabbit(MonsterType.Rabbit, "white rabbit", 50, 25, 25, 50, 20, 2, "rabbit", true);
+                Rabbit rabbit = new Rabbit(MonsterType.Rabbit, "Terry the Tooth", 25, 60, 25, 25, 15, 10, "This is no normal rabbit!", true);
+                Rabbit rabbit2 = new Rabbit(MonsterType.Rabbit, "Lil Terry", 15, 50, 25, 15, 10, 2, "rabbit", true);
 
-                 Vampire vampire = new Vampire(MonsterType.Vampire, "Vampire", 50, 15, 15, 50, 10, 5, "bad mf");
+                Vampire vampire = new Vampire(MonsterType.Vampire, "Vampire", 25, 55, 15, 25, 10, 5, "bad mf");
+                Turtle turtle = new(MonsterType.Turtle, "Franklin", 20, 50, 10, 20, 5, 1, "This is no turtle in a half-shell", 30, 15);
+                Turtle turtle2 = new(MonsterType.Turtle, "Razortooth", 20, 66, 10, 20, 10, 2, "Does more damage, but he has weaknesses.", 5, 15);
+                Monster zombie = new Monster(MonsterType.Zombies, "Undying corpse", 15, 66, 33, 15, 5, 2, "How many times must i kill you!?");
+                Monster skeleton = new(MonsterType.Skeletons, "Bone Pile", 15, 66, 15, 15, 5, 1, "Trembling bones, rattling in your ear.");
 
-                Monster[] monsters = {rabbit, rabbit2, vampire}; 
+                Monster[] monsters = {rabbit, rabbit2, vampire, turtle, turtle2, zombie}; 
 
                 Random randMonster = new Random();
                 int randNbr = randMonster.Next(monsters.Length);
@@ -170,7 +179,7 @@ namespace Dungeon
                 Console.WriteLine(GetRoom());
 
 
-                Console.WriteLine("\nIn this room, you see a " + chosenMonster.Name);
+                Console.WriteLine("\nIn this room, you see " + chosenMonster.Name);
 
 
                 bool inner = false;
@@ -218,7 +227,7 @@ namespace Dungeon
                                 #region Option - Combat Rewards
 
                                 // You could add some logic here to grant the Player life:
-                                // player.Life += 5;
+                                player.Life += 5;
                                    
                                 // Or, loot drops! (Note: This would require an Item class, 
                                 // as well as a property for the player of type List<Item>):
@@ -232,7 +241,7 @@ namespace Dungeon
 
                                 Console.ForegroundColor = ConsoleColor.Green;
 
-                                Console.WriteLine("\nYou killed {0}\n", chosenMonster.Name);
+                                Console.WriteLine("\nYou defeated {0}. Congratulations, you gain 5 life.\n", chosenMonster.Name);
 
                                 Console.ResetColor();
 
@@ -241,7 +250,6 @@ namespace Dungeon
                                 // Flip inner bool to exit the menu loop and get a new room and new monster
                                 inner = true;
                             }
-
                             break;
                         case "R":
                             Console.WriteLine("{0} chooses to run away!", player.Name);
@@ -269,7 +277,7 @@ namespace Dungeon
                             main = true;
                             break;
                         default:
-                            Console.WriteLine("Input not recognized. Please try again.");
+                            Console.WriteLine("Try again, this time follow the directions.");
                             break;
 
                     }
@@ -292,7 +300,7 @@ namespace Dungeon
 
             #region Output Final Score / End Game
 
-            Console.WriteLine("You defeated " + score + " monster " + ((score == 1) ? "." : "s."));
+            Console.WriteLine("You defeated " + score + " monster" + ((score == 1) ? "." : "s."));
 
 
             #endregion
@@ -303,9 +311,9 @@ namespace Dungeon
             string[] rooms =
             {
                 "The room is dark and musty with the smell of lost souls.", 
-                "You enter a quiet library... silence... nothing but silence....", 
-                "You arrive in a room filled with chairs and a ticket stub machine... the dreaded DMV",
-                "You entered a room with a horde of bats.",
+                "You enter a desolate library... silence... nothing but silence....", 
+                "You arrive in a room scattered with coffins and urns.",
+                "You enter a room with a horde of bats.",
                 "You are in a dark corridor, only lit by candleflame and spell light. Chanting fills the corridor."
             };
             Random roomRand = new Random();

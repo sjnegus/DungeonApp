@@ -9,7 +9,7 @@ namespace DungeonLibrary
     public class Monster : Character
     {
         // -- FIELDS --
-        private int _maxDamage;
+        
         private int _minDamage;
 
 
