@@ -12,7 +12,7 @@ namespace DungeonLibrary
         Zombies,
         Bears,
         Orcs,
-        Goblins,
+        Serpent,
         Skeletons,
         Witch, 
         Rabbit,

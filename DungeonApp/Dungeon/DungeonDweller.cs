@@ -10,6 +10,8 @@ namespace Dungeon
 {
     class DungeonDweller
     {
+        private static WeaponType userWeapon;
+
         static void Main(string[] args)
         {
 
@@ -23,8 +25,9 @@ namespace Dungeon
 
             #region Variable to keep score
             int score = 0;
-            //TODO create variable to keep score
+
             #endregion
+
 
             #region Weapon
 
@@ -38,10 +41,23 @@ namespace Dungeon
                 index++;
             }
 
+            try
+            {
             int userInput = int.Parse(Console.ReadLine());
-            Console.Clear();
-
             WeaponType userWeapon = (WeaponType)userInput;
+
+                var e = new Exception("CusTOm MeSsaGe");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("That wasn't a number... Enter a SINGLE digit");
+                
+                throw;
+            }
+             
+            Console.Clear();
+            
+
 
             Weapon weapon = new Weapon();
 
@@ -141,6 +157,7 @@ namespace Dungeon
                     weapon.Type = WeaponType.Crowbar;
                     break;
                 default:
+                    Console.WriteLine("Try again... This time follow instructions.");
                     break;
             }
 
@@ -150,6 +167,7 @@ namespace Dungeon
             Player player = new Player("Leroy Jenkins", 50, 75, 40, 50, Race.Human, weapon);
             Console.WriteLine(player);
             #endregion
+
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey(true);
             Console.Clear();
@@ -158,26 +176,19 @@ namespace Dungeon
 
             do
             {
-
-                Rabbit rabbit = new Rabbit(MonsterType.Rabbit, "Terry the Tooth", 25, 60, 25, 25, 15, 10, "This is no normal rabbit!", true);
-                Rabbit rabbit2 = new Rabbit(MonsterType.Rabbit, "Lil Terry", 15, 50, 25, 15, 10, 2, "rabbit", true);
-
-                Vampire vampire = new Vampire(MonsterType.Vampire, "Vampire", 25, 55, 15, 25, 10, 5, "bad mf");
-                Turtle turtle = new(MonsterType.Turtle, "Franklin", 20, 50, 10, 20, 5, 1, "This is no turtle in a half-shell", 30, 15);
-                Turtle turtle2 = new(MonsterType.Turtle, "Razortooth", 20, 66, 10, 20, 10, 2, "Does more damage, but he has weaknesses.", 5, 15);
-                Monster zombie = new Monster(MonsterType.Zombies, "Undying corpse", 15, 66, 33, 15, 5, 2, "How many times must i kill you!?");
-                Monster skeleton = new(MonsterType.Skeletons, "Bone Pile", 15, 66, 15, 15, 5, 1, "Trembling bones, rattling in your ear.");
-
-                Monster[] monsters = {rabbit, rabbit2, vampire, turtle, turtle2, zombie}; 
-
-                Random randMonster = new Random();
-                int randNbr = randMonster.Next(monsters.Length);
-
-                Monster chosenMonster = monsters[randNbr];
-
+                Monster chosenMonster = GetMonster();
 
                 Console.WriteLine(GetRoom());
 
+                if (GetRoom() == "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!")
+                {
+                    player.MaxLife += 10;
+                    player.Life += 10;
+                }
+                if (GetRoom() == "THE FLOOR IS LAVA!!! In this room you will lose 2 health per attack.")
+                {
+                    //TODO lose life per attack only in this room
+                }
 
                 Console.WriteLine("\nIn this room, you see " + chosenMonster.Name);
 
@@ -228,10 +239,10 @@ namespace Dungeon
 
                                 // You could add some logic here to grant the Player life:
                                 player.Life += 5;
-                                   
+
                                 // Or, loot drops! (Note: This would require an Item class, 
                                 // as well as a property for the player of type List<Item>):
-                                   
+
                                 // Item rubyNecklace = new Item("Ruby Necklace", "Increases Max Life", MaxLife, 10);
                                 // player.Inventory.Add(rubyNecklace);
                                 // Console.WriteLine($"{player.Name} received {rubyNecklace.Name}!");
@@ -264,13 +275,11 @@ namespace Dungeon
 
                             break;
                         case "C":
-                            Console.WriteLine(player);                            
-                            
+                            Console.WriteLine(player);
+
                             break;
                         case "M":
                             Console.WriteLine(chosenMonster);
-
-                            //TODO Add monster info
                             break;
                         case "X":
                             Console.WriteLine("Thanks for playing!");
@@ -283,13 +292,13 @@ namespace Dungeon
                     }
 
                     #region Check Player Life
-                    //TODO Check Player Life
 
                     if (player.Life <= 0)
                     {
                         Console.WriteLine("You have been vanquished.");
 
-                        main |= true;
+
+                        main = true;
                     }
                     #endregion
 
@@ -305,16 +314,41 @@ namespace Dungeon
 
             #endregion
         }
-        #region Create GetRoom() Functionality
+        #region GetMonster() Functionality 
+        private static Monster GetMonster()
+        {
+            Rabbit rabbit = new Rabbit(MonsterType.Rabbit, "Terry the Tooth", 25, 60, 25, 25, 15, 10, "This is no normal rabbit!", true);
+            Rabbit rabbit2 = new Rabbit(MonsterType.Rabbit, "Lil Terry", 15, 50, 25, 15, 10, 2, "rabbit", true);
+
+            Vampire vampire = new Vampire(MonsterType.Vampire, "Vampire", 25, 55, 15, 25, 10, 5, "bad mf");
+            Turtle turtle = new(MonsterType.Turtle, "Franklin", 20, 50, 10, 20, 5, 1, "This is no turtle in a half-shell", 30, 15);
+            Turtle turtle2 = new(MonsterType.Turtle, "Razortooth", 20, 66, 10, 20, 10, 2, "Does more damage, but he has weaknesses.", 5, 15);
+            Monster zombie = new Monster(MonsterType.Zombies, "Undying corpse", 15, 66, 33, 15, 5, 2, "How many times must i kill you!?");
+            Monster skeleton = new(MonsterType.Skeletons, "Bone Pile", 15, 66, 15, 15, 5, 1, "Trembling bones, rattling in your ear.");
+
+            Monster[] monsters = { rabbit, rabbit2, vampire, turtle, turtle2, zombie, skeleton };
+
+            Random randMonster = new Random();
+            int randNbr = randMonster.Next(monsters.Length);
+
+            Monster chosenMonster = monsters[randNbr];
+            return chosenMonster;
+        }
+        #endregion
+
+        #region GetRoom() Functionality
         public static string GetRoom()
         {
             string[] rooms =
             {
-                "The room is dark and musty with the smell of lost souls.", 
-                "You enter a desolate library... silence... nothing but silence....", 
+                "The room is dark and musty with the smell of lost souls.",
+                "You enter a desolate library... silence... nothing but silence....",
                 "You arrive in a room scattered with coffins and urns.",
                 "You enter a room with a horde of bats.",
-                "You are in a dark corridor, only lit by candleflame and spell light. Chanting fills the corridor."
+                "You are in a dark corridor, only lit by candleflame and spell light. Chanting fills the corridor.",
+                "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!",
+                // TODO add fire room (- health / attack)
+                "THE FLOOR IS LAVA!!! In this room you will lose 2 health per attack.",
             };
             Random roomRand = new Random();
             int index = roomRand.Next(rooms.Length);
