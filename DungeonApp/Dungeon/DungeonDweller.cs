@@ -14,305 +14,311 @@ namespace Dungeon
 
         static void Main(string[] args)
         {
+            bool playAgain = true;
 
-            #region Title/Intro
-            TitleIntro.Header("DUNGEON DWELLER");
-            Console.WriteLine("\n\nWelcome to Underworld.\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey(true);
-            Console.Clear();
-            #endregion
-
-            #region Variable to keep score
-            int score = 0;
-
-            #endregion
-
-
-            #region Weapon
-
-            Console.Write("Please choose your Weapon from the list below (enter number only):\n\n");
-
-            int index = 0;
-
-            foreach (var item in Enum.GetValues(typeof(WeaponType)))
+            while (playAgain)
             {
-                Console.WriteLine(index + " - " + item);
-                index++;
-            }
+                #region Title/Intro
+                TitleIntro.Header("DUNGEON DWELLER");
+                Console.WriteLine("\n\nWelcome to Underworld.\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey(true);
+                Console.Clear();
+                #endregion
 
-            try
-            {
-            int userInput = int.Parse(Console.ReadLine());
-            WeaponType userWeapon = (WeaponType)userInput;
+                #region Variable to keep score
+                int score = 0;
 
-                var e = new Exception("CusTOm MeSsaGe");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("That wasn't a number... Enter a SINGLE digit");
-                
-                throw;
-            }
-             
-            Console.Clear();
-            
+                #endregion
 
+                // TODO fix weapon selection
+                #region Weapon
 
-            Weapon weapon = new Weapon();
+                Console.Write("Please choose your Weapon from the list below (enter number only):\n\n");
 
-            switch (userWeapon)
-            {
-                case WeaponType.Dagger:
-                    Console.WriteLine("You selected Flamethorn, a legendary dagger said to compel its bearer to defeat Gudaga the Crimson.\n");
-                    //Weapon flamethorn = new Weapon("Flamethorn", 6, 2, 15, false, WeaponType.Dagger);
-                    weapon.Name = "Flamethorn";
-                    weapon.MaxDamage = 6;
-                    weapon.MinDamage = 2;
-                    weapon.BonusHitChance = 15;
-                    weapon.IsTwoHanded = false;
-                    weapon.Type = WeaponType.Dagger;
-                    
-                    break;
-                case WeaponType.Broadsword:
-                    Console.WriteLine("You selected Fiendblade, a masterwork broadsword engraved with the holy symbol of a war god.\n");
-                    //Weapon weapon = new Weapon("Flamethorn", 6, 2, 15, false, WeaponType.Dagger);
-                    weapon.Name = "Fiendblade";
-                    weapon.MaxDamage = 7;
-                    weapon.MinDamage = 2;
-                    weapon.BonusHitChance = 15;
-                    weapon.IsTwoHanded = true;
-                    weapon.Type= WeaponType.Broadsword;
-                    break;
-                case WeaponType.Bow:
-                    Console.WriteLine("You selected Lawtooth, a masterwork longbow said to be imbued with the spirit of the illustrious fighter Nelalwe. It once belonged to the great archer who fell in the War of Malefic Rings.\n");
-                    weapon.Name = "Lawtooth";
-                    weapon.MaxDamage = 5;
-                    weapon.MinDamage = 0;
-                    weapon.BonusHitChance = 8;
-                    weapon.IsTwoHanded = true;
-                    weapon.Type = WeaponType.Bow;
-                    break;
-                case WeaponType.Sceptre:
-                    Console.WriteLine("You selected Drakehammer, a magical flail said to lead the one who wields it to wealth and glory\n");
-                    weapon.Name = "Drakehammer";
-                    weapon.MaxDamage = 5;
-                    weapon.MinDamage = 1;
-                    weapon.BonusHitChance = 10;
-                    weapon.IsTwoHanded = false;
-                    weapon.Type = WeaponType.Sceptre;
-                    break;
-                case WeaponType.Claw:
-                    Console.WriteLine("You selected Ghoulclaw, a magical halberd inlaid with mithral. It is said to have been created to slay the Serpent of Underworld.\n");
-                    weapon.Name = "Ghoulclaw";
-                    weapon.MaxDamage = 4;
-                    weapon.MinDamage = 0;
-                    weapon.BonusHitChance = 12;
-                    weapon.IsTwoHanded = false;
-                    weapon.Type = WeaponType.Claw;
-                    break;
-                case WeaponType.Wand:
-                    Console.WriteLine("You selected Corrupt Storm, a magical wand which once belonged to the great warrior Aisen, who fell in the Bloody Campaign.\n");
-                    weapon.Name = "Corrupt Storm";
-                    weapon.MaxDamage = 3;
-                    weapon.MinDamage = 0;
-                    weapon.BonusHitChance = 5;
-                    weapon.IsTwoHanded = false;
-                    weapon.Type = WeaponType.Wand;
-                    break;
-                case WeaponType.Staff:
-                    Console.WriteLine("You selected Abyssal Vengeance, a mythical staff engraved with the holy symbol of a war god. It is said to be the key to open the Hell Gate of the Shadowy Mire.\n");
-                    weapon.Name = "Abyssal Vengeance";
-                    weapon.MaxDamage = 6;
-                    weapon.MinDamage = 1;
-                    weapon.BonusHitChance = 12;
-                    weapon.IsTwoHanded = true;
-                    weapon.Type = WeaponType.Staff;
-                    break;
-                case WeaponType.Axe:
-                    Console.WriteLine("You selected Wraithrazor, a mythical battleaxe which once belonged to the illustrious warrior Amivy, who perished in the Desolation of Gudama.\n");
-                    weapon.Name = "Wraithrazor";
-                    weapon.MaxDamage = 10;
-                    weapon.MinDamage = 2;
-                    weapon.BonusHitChance = 15;
-                    weapon.IsTwoHanded = true;
-                    weapon.Type = WeaponType.Axe;
-                    break;
-                case WeaponType.Club:
-                    Console.WriteLine("You selected Fallen Vengeance, a legendary club which was created by the dwarves of the great empire of Khola.\n");
-                    weapon.Name = "Fallen Vengeance";
-                    weapon.MaxDamage = 9;
-                    weapon.MinDamage = 2;
-                    weapon.BonusHitChance = 14;
-                    weapon.IsTwoHanded = false;
-                    weapon.Type = WeaponType.Club;
-                    break;
-                case WeaponType.Crowbar:
-                    Console.WriteLine("You selected Celestial Storm, a finely crafted bar engraved with runes of death. It once belonged to the legendary ranger Tholmge, who perished in the Caro Jungle.\n");
-                    weapon.Name = "Celestial Storm";
-                    weapon.MaxDamage = 7;
-                    weapon.MinDamage = 1;
-                    weapon.BonusHitChance = 11;
-                    weapon.IsTwoHanded = false;
-                    weapon.Type = WeaponType.Crowbar;
-                    break;
-                default:
-                    Console.WriteLine("Try again... This time follow instructions.");
-                    break;
-            }
+                int index = 0;
 
-            #endregion
-
-            #region Player
-            Player player = new Player("Leroy Jenkins", 50, 75, 40, 50, Race.Human, weapon);
-            Console.WriteLine(player);
-            #endregion
-
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey(true);
-            Console.Clear();
-
-            bool main = false;
-
-            do
-            {
-                Monster chosenMonster = GetMonster();
-
-                Console.WriteLine(GetRoom());
-
-                if (GetRoom() == "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!")
+                foreach (var item in Enum.GetValues(typeof(WeaponType)))
                 {
-                    player.MaxLife += 10;
-                    player.Life += 10;
-                }
-                if (GetRoom() == "THE FLOOR IS LAVA!!! In this room you will lose 2 health per attack.")
-                {
-                    //TODO lose life per attack only in this room
+                    Console.WriteLine(index + " - " + item);
+                    index++;
                 }
 
-                Console.WriteLine("\nIn this room, you see " + chosenMonster.Name);
+                Console.ReadLine();
+                Weapon weapon = new Weapon();
 
+                switch (userWeapon)
+                {
+                    case WeaponType.Dagger:
+                        Console.WriteLine("You selected Flamethorn, a legendary dagger said to compel its bearer to defeat Gudaga the Crimson.\n");
+                        //Weapon flamethorn = new Weapon("Flamethorn", 6, 2, 15, false, WeaponType.Dagger);
+                        weapon.Name = "Flamethorn";
+                        weapon.MaxDamage = 6;
+                        weapon.MinDamage = 2;
+                        weapon.BonusHitChance = 15;
+                        weapon.IsTwoHanded = false;
+                        weapon.Type = WeaponType.Dagger;
 
-                bool inner = false;
+                        break;
+                    case WeaponType.Broadsword:
+                        Console.WriteLine("You selected Fiendblade, a masterwork broadsword engraved with the holy symbol of a war god.\n");
+                        //Weapon weapon = new Weapon("Flamethorn", 6, 2, 15, false, WeaponType.Dagger);
+                        weapon.Name = "Fiendblade";
+                        weapon.MaxDamage = 7;
+                        weapon.MinDamage = 2;
+                        weapon.BonusHitChance = 15;
+                        weapon.IsTwoHanded = true;
+                        weapon.Type = WeaponType.Broadsword;
+                        break;
+                    case WeaponType.Bow:
+                        Console.WriteLine("You selected Lawtooth, a masterwork longbow said to be imbued with the spirit of the illustrious fighter Nelalwe. It once belonged to the great archer who fell in the War of Malefic Rings.\n");
+                        weapon.Name = "Lawtooth";
+                        weapon.MaxDamage = 5;
+                        weapon.MinDamage = 0;
+                        weapon.BonusHitChance = 8;
+                        weapon.IsTwoHanded = true;
+                        weapon.Type = WeaponType.Bow;
+                        break;
+                    case WeaponType.Sceptre:
+                        Console.WriteLine("You selected Drakehammer, a magical flail said to lead the one who wields it to wealth and glory\n");
+                        weapon.Name = "Drakehammer";
+                        weapon.MaxDamage = 5;
+                        weapon.MinDamage = 1;
+                        weapon.BonusHitChance = 10;
+                        weapon.IsTwoHanded = false;
+                        weapon.Type = WeaponType.Sceptre;
+                        break;
+                    case WeaponType.Claw:
+                        Console.WriteLine("You selected Ghoulclaw, a magical halberd inlaid with mithral. It is said to have been created to slay the Serpent of Underworld.\n");
+                        weapon.Name = "Ghoulclaw";
+                        weapon.MaxDamage = 4;
+                        weapon.MinDamage = 0;
+                        weapon.BonusHitChance = 12;
+                        weapon.IsTwoHanded = false;
+                        weapon.Type = WeaponType.Claw;
+                        break;
+                    case WeaponType.Wand:
+                        Console.WriteLine("You selected Corrupt Storm, a magical wand which once belonged to the great warrior Aisen, who fell in the Bloody Campaign.\n");
+                        weapon.Name = "Corrupt Storm";
+                        weapon.MaxDamage = 3;
+                        weapon.MinDamage = 0;
+                        weapon.BonusHitChance = 5;
+                        weapon.IsTwoHanded = false;
+                        weapon.Type = WeaponType.Wand;
+                        break;
+                    case WeaponType.Staff:
+                        Console.WriteLine("You selected Abyssal Vengeance, a mythical staff engraved with the holy symbol of a war god. It is said to be the key to open the Hell Gate of the Shadowy Mire.\n");
+                        weapon.Name = "Abyssal Vengeance";
+                        weapon.MaxDamage = 6;
+                        weapon.MinDamage = 1;
+                        weapon.BonusHitChance = 12;
+                        weapon.IsTwoHanded = true;
+                        weapon.Type = WeaponType.Staff;
+                        break;
+                    case WeaponType.Axe:
+                        Console.WriteLine("You selected Wraithrazor, a mythical battleaxe which once belonged to the illustrious warrior Amivy, who perished in the Desolation of Gudama.\n");
+                        weapon.Name = "Wraithrazor";
+                        weapon.MaxDamage = 10;
+                        weapon.MinDamage = 2;
+                        weapon.BonusHitChance = 15;
+                        weapon.IsTwoHanded = true;
+                        weapon.Type = WeaponType.Axe;
+                        break;
+                    case WeaponType.Club:
+                        Console.WriteLine("You selected Fallen Vengeance, a legendary club which was created by the dwarves of the great empire of Khola.\n");
+                        weapon.Name = "Fallen Vengeance";
+                        weapon.MaxDamage = 9;
+                        weapon.MinDamage = 2;
+                        weapon.BonusHitChance = 14;
+                        weapon.IsTwoHanded = false;
+                        weapon.Type = WeaponType.Club;
+                        break;
+                    case WeaponType.Crowbar:
+                        Console.WriteLine("You selected Celestial Storm, a finely crafted bar engraved with runes of death. It once belonged to the legendary ranger Tholmge, who perished in the Caro Jungle.\n");
+                        weapon.Name = "Celestial Storm";
+                        weapon.MaxDamage = 7;
+                        weapon.MinDamage = 1;
+                        weapon.BonusHitChance = 11;
+                        weapon.IsTwoHanded = false;
+                        weapon.Type = WeaponType.Crowbar;
+                        break;
+                    default:
+                        Console.WriteLine("Try again... This time follow instructions.");
+                        break;
+                }
+
+                #endregion
+
+                #region Player
+                Player player = new Player("Leroy Jenkins", 50, 75, 40, 50, Race.Human, weapon);
+                Console.WriteLine(player);
+                #endregion
+
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey(true);
+                Console.Clear();
+
+                bool main = false;
+
                 do
                 {
-                    Console.WriteLine("\nHow do you proceed?\n" +
-                        "A) Attack\n" +
-                        "R) Run\n" +
-                        "C) Character Info\n" +
-                        "M) Monster Info\n" +
-                        "X) eXit\n");
-                    //ConsoleKey userChoice = Console.ReadKey(true).Key;   EXECUTES UPON INPUT, WITHOUT HITTING ENTER
-                    string action = Console.ReadLine().ToUpper();
-                    Console.Clear();
+                    Monster chosenMonster = GetMonster();
 
-                    switch (action)
+                    Console.WriteLine(GetRoom());
+
+                    if (GetRoom() == "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!")
                     {
-                        case "A":
-                            Console.WriteLine("Attack");
-
-                            #region Option - Racial/Weapon Bonus
-
-                            // You could consider giving bonuses based on the player's race, 
-                            // weapon, the monster they are facing, etc.
-
-                            // if (player.CharacterRace == Race.Leonin)
-                            // {
-                            //     Combat.DoAttack(player, chosenMonster);
-                            // }
-                            // if (player.EquippedWeapon.Name == "Fiendslayer" && chosenMonster.GetType().ToString() == "Fiend")
-                            // {
-                            //     Combat.DoAttack(player, chosenMonster);
-                            // }
+                        player.MaxLife += 10;
+                        player.Life += 10;
+                    }
 
 
-                            #endregion
+                    Console.WriteLine("\nIn this room, you see " + chosenMonster.Name);
 
-                            // Execute combat
-                            Combat.DoBattle(player, chosenMonster);
 
-                            //Check if the monster is dead
-                            if (chosenMonster.Life <= 0)
-                            {
+                    bool inner = false;
+                    do
+                    {
+                        Console.WriteLine("\nHow do you proceed?\n" +
+                            "A) Attack\n" +
+                            "R) Run\n" +
+                            "C) Character Info\n" +
+                            "M) Monster Info\n" +
+                            "S) Score\n" +
+                            "X) eXit\n");
+                        //ConsoleKey userChoice = Console.ReadKey(true).Key;   EXECUTES UPON INPUT, WITHOUT HITTING ENTER
+                        string action = Console.ReadLine().ToUpper();
+                        Console.Clear();
 
-                                #region Option - Combat Rewards
+                        switch (action)
+                        {
+                            case "A":
+                                Console.WriteLine("Attack");
 
-                                // You could add some logic here to grant the Player life:
-                                player.Life += 5;
+                                #region Option - Racial/Weapon Bonus
 
-                                // Or, loot drops! (Note: This would require an Item class, 
-                                // as well as a property for the player of type List<Item>):
+                                // You could consider giving bonuses based on the player's race, 
+                                // weapon, the monster they are facing, etc.
 
-                                // Item rubyNecklace = new Item("Ruby Necklace", "Increases Max Life", MaxLife, 10);
-                                // player.Inventory.Add(rubyNecklace);
-                                // Console.WriteLine($"{player.Name} received {rubyNecklace.Name}!");
-                                // Console.WriteLine($"{rubyNecklace}");
+                                // if (player.CharacterRace == Race.Leonin)
+                                // {
+                                //     Combat.DoAttack(player, chosenMonster);
+                                // }
+                                // if (player.EquippedWeapon.Name == "Fiendslayer" && chosenMonster.GetType().ToString() == "Fiend")
+                                // {
+                                //     Combat.DoAttack(player, chosenMonster);
+                                // }
+
 
                                 #endregion
 
-                                Console.ForegroundColor = ConsoleColor.Green;
+                                if (GetRoom() == "THE FLOOR IS LAVA!!! In this room you will lose 2 health per attack.")
+                                {
+                                    player.Life -= 2;
+                                    Console.WriteLine("You lose 2 life per attack while you're in this room.");
+                                }
 
-                                Console.WriteLine("\nYou defeated {0}. Congratulations, you gain 5 life.\n", chosenMonster.Name);
+                                // Execute combat
+                                Combat.DoBattle(player, chosenMonster);
 
-                                Console.ResetColor();
+                                //Check if the monster is dead
+                                if (chosenMonster.Life <= 0)
+                                {
 
-                                score++;
+                                    #region Option - Combat Rewards
 
-                                // Flip inner bool to exit the menu loop and get a new room and new monster
+                                    // You could add some logic here to grant the Player life:
+                                    player.Life += 5;
+
+                                    // Or, loot drops! (Note: This would require an Item class, 
+                                    // as well as a property for the player of type List<Item>):
+
+                                    // Item rubyNecklace = new Item("Ruby Necklace", "Increases Max Life", MaxLife, 10);
+                                    // player.Inventory.Add(rubyNecklace);
+                                    // Console.WriteLine($"{player.Name} received {rubyNecklace.Name}!");
+                                    // Console.WriteLine($"{rubyNecklace}");
+
+                                    #endregion
+
+                                    Console.ForegroundColor = ConsoleColor.Green;
+
+                                    Console.WriteLine("\nYou defeated {0}. Congratulations, you gain 5 life.\n", chosenMonster.Name);
+
+                                    Console.ResetColor();
+
+                                    score++;
+
+                                    // Flip inner bool to exit the menu loop and get a new room and new monster
+                                    inner = true;
+                                }
+                                break;
+                            case "R":
+                                Console.WriteLine("{0} chooses to run away!", player.Name);
+
+                                Console.WriteLine($"{chosenMonster.Name} attacks {player.Name} as they flee!");
+
+                                Combat.DoAttack(chosenMonster, player);
+
+                                Console.WriteLine();
+
                                 inner = true;
+
+                                break;
+                            case "C":
+                                Console.WriteLine(player);
+
+                                break;
+                            case "M":
+                                Console.WriteLine(chosenMonster);
+                                break;
+                            case "S":
+                                Console.WriteLine($"You have killed {score} monster" + ((score == 1) ? "." : "s."));
+                                    break;
+                            case "X":
+                                Console.WriteLine("Thanks for playing!");
+                                main = true;
+                                playAgain = false;
+                                break;
+                            default:
+                                Console.WriteLine("Try again, this time follow the directions.");
+                                break;
+
+                        }
+
+                        #region Check Player Life
+
+                        if (player.Life <= 0)
+                        {
+                            Console.WriteLine("You have been vanquished. Would you like to play again? (Y/N)");
+                        string replay = Console.ReadLine().ToUpper();
+                            switch (replay)
+                            {
+                                case "Y":
+                                    Console.WriteLine("Good Luck, " + player.Name);
+                                    break;
+                                case "N":
+                                    Console.WriteLine("Thank you for playing.");
+                                    playAgain = true;
+                                    break;
                             }
-                            break;
-                        case "R":
-                            Console.WriteLine("{0} chooses to run away!", player.Name);
-
-                            Console.WriteLine($"{chosenMonster.Name} attacks {player.Name} as they flee!");
-
-                            Combat.DoAttack(chosenMonster, player);
-
-                            Console.WriteLine();
-
-                            inner = true;
-
-                            break;
-                        case "C":
-                            Console.WriteLine(player);
-
-                            break;
-                        case "M":
-                            Console.WriteLine(chosenMonster);
-                            break;
-                        case "X":
-                            Console.WriteLine("Thanks for playing!");
-                            main = true;
-                            break;
-                        default:
-                            Console.WriteLine("Try again, this time follow the directions.");
-                            break;
-
-                    }
-
-                    #region Check Player Life
-
-                    if (player.Life <= 0)
-                    {
-                        Console.WriteLine("You have been vanquished.");
-
-
                         main = true;
-                    }
-                    #endregion
+                        }
+
+                        #endregion
 
 
-                } while (!inner && !main);
+                    } while (!inner && !main);
 
-            } while (!main);
+                } while (!main);
 
-            #region Output Final Score / End Game
+                #region Output Final Score / End Game
 
-            Console.WriteLine("You defeated " + score + " monster" + ((score == 1) ? "." : "s."));
+                Console.WriteLine("You defeated " + score + " monster" + ((score == 1) ? "." : "s."));
 
 
-            #endregion
+                #endregion
+            }// --END-- while (playAgain)
+            playAgain = false;
         }
         #region GetMonster() Functionality 
         private static Monster GetMonster()
