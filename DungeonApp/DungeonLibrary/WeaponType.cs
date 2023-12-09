@@ -8,7 +8,7 @@ namespace DungeonLibrary
 {
     public enum WeaponType
     {
-        Dagger,
+        Dagger = 1,
         Broadsword,
         Bow,
         Sceptre,

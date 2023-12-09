@@ -20,7 +20,7 @@ namespace Dungeon
             {
                 #region Title/Intro
                 TitleIntro.Header("DUNGEON DWELLER");
-                Console.WriteLine("\n\nWelcome to Underworld.\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
+                Console.WriteLine("\n\n\t\t\t\t=-=-=-=- Welcome to Underworld -=-=-=-=\n\nPlease help us to defeat the evil that has taken over our world.\n\n");
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey(true);
                 Console.Clear();
@@ -36,15 +36,17 @@ namespace Dungeon
 
                 Console.Write("Please choose your Weapon from the list below (enter number only):\n\n");
 
-                int index = 0;
+                //int index = 0;
 
                 foreach (var item in Enum.GetValues(typeof(WeaponType)))
                 {
-                    Console.WriteLine(index + " - " + item);
-                    index++;
+                    Console.WriteLine((int)item + " - " + item);
+                    //index++;
                 }
-
-                Console.ReadLine();
+                int.TryParse(Console.ReadLine(), out int weaponTypeChoice);
+                userWeapon = (WeaponType)weaponTypeChoice;
+                Console.Clear();
+                
                 Weapon weapon = new Weapon();
 
                 switch (userWeapon)
@@ -143,7 +145,7 @@ namespace Dungeon
                         weapon.Type = WeaponType.Crowbar;
                         break;
                     default:
-                        Console.WriteLine("Try again... This time follow instructions.");
+                        Console.WriteLine("Idiot... now you have to battle with no weapon.");
                         break;
                 }
 
@@ -163,13 +165,14 @@ namespace Dungeon
                 do
                 {
                     Monster chosenMonster = GetMonster();
+                    string room = GetRoom();
 
-                    Console.WriteLine(GetRoom());
+                    Console.WriteLine(room);
 
-                    if (GetRoom() == "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!")
+                    if (room == "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!")
                     {
                         player.MaxLife += 10;
-                        player.Life += 10;
+                        player.Life = player.MaxLife;
                     }
 
 
@@ -179,7 +182,7 @@ namespace Dungeon
                     bool inner = false;
                     do
                     {
-                        Console.WriteLine("\nHow do you proceed?\n" +
+                        Console.WriteLine("\n" + room + "\nHow do you proceed?\n" +
                             "A) Attack\n" +
                             "R) Run\n" +
                             "C) Character Info\n" +
@@ -212,10 +215,12 @@ namespace Dungeon
 
                                 #endregion
 
-                                if (GetRoom() == "THE FLOOR IS LAVA!!! In this room you will lose 2 health per attack.")
+                                if (room == "THE FLOOR IS LAVA!!! In this room you will lose 2 health per attack.")
                                 {
-                                    player.Life -= 2;
-                                    Console.WriteLine("You lose 2 life per attack while you're in this room.");
+                                    player.Life -= 1;
+                                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                                    Console.WriteLine("You lose 1 life per attack while you're in this room.");
+                                    Console.ResetColor();
                                 }
 
                                 // Execute combat
@@ -226,7 +231,10 @@ namespace Dungeon
                                 {
 
                                     #region Option - Combat Rewards
-
+                                    if (room == "You enter a room with a fountain of youth!!! Add 10 to Max Life")
+                                    {
+                                        player.MaxLife += 10;
+                                    }
                                     // You could add some logic here to grant the Player life:
                                     player.Life += 5;
 
@@ -299,6 +307,10 @@ namespace Dungeon
                                 case "N":
                                     Console.WriteLine("Thank you for playing.");
                                     playAgain = true;
+                                    main = false;
+                                    break;
+                                default:
+                                    Console.WriteLine("Please follow instructions.");
                                     break;
                             }
                         main = true;
