@@ -31,7 +31,6 @@ namespace Dungeon
 
                 #endregion
 
-                // TODO fix weapon selection
                 #region Weapon
 
                 Console.Write("Please choose your Weapon from the list below (enter number only):\n\n");
@@ -365,8 +364,8 @@ namespace Dungeon
                 "You enter a room with a horde of bats.",
                 "You are in a dark corridor, only lit by candleflame and spell light. Chanting fills the corridor.",
                 "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!",
-                // TODO add fire room (- health / attack)
-                "THE FLOOR IS LAVA!!! In this room you will lose 2 health per attack.",
+                // TODO add freeze room (monster attacks first)
+                "THE FLOOR IS LAVA!!! In this room you will lose 1 health per attack.",
             };
             Random roomRand = new Random();
             int index = roomRand.Next(rooms.Length);

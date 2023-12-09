@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dungeon", "Dungeon\Dungeon.csproj", "{2077CC3A-5645-4AC6-9D93-73C40476EBC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonLibrary", "DungeonLibrary\DungeonLibrary.csproj", "{600FA6D3-929C-4E29-BC8D-D413C13FDF0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonLibrary", "DungeonLibrary\DungeonLibrary.csproj", "{600FA6D3-929C-4E29-BC8D-D413C13FDF0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonTests", "DungeonTests\DungeonTests.csproj", "{8385FF56-4195-4795-B5FD-D0DBC4E904DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{600FA6D3-929C-4E29-BC8D-D413C13FDF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{600FA6D3-929C-4E29-BC8D-D413C13FDF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{600FA6D3-929C-4E29-BC8D-D413C13FDF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8385FF56-4195-4795-B5FD-D0DBC4E904DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8385FF56-4195-4795-B5FD-D0DBC4E904DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8385FF56-4195-4795-B5FD-D0DBC4E904DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8385FF56-4195-4795-B5FD-D0DBC4E904DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
