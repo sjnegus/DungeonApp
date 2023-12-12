@@ -48,6 +48,10 @@ namespace DungeonLibrary
             GetMonsterType = getMonsterType;
         }
 
+        public Monster()
+        {
+        }
+
         // -- METHODS --
 
         public override string ToString()

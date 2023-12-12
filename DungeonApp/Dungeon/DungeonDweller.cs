@@ -168,7 +168,7 @@ namespace Dungeon
 
                     Console.WriteLine(room);
 
-                    if (room == "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!")
+                    if (room == "You enter a room with a fountain of youth!!! Add 10 to Max Life!!!")// && chosenMonster.Life <= 0
                     {
                         player.MaxLife += 10;
                         player.Life = player.MaxLife;

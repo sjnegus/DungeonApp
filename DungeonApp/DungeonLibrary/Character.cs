@@ -67,6 +67,10 @@ namespace DungeonLibrary
             Block = block;  
             Life = life;
         }
+        public Character()
+        {
+            
+        }
 
         // -- METHODS --
 

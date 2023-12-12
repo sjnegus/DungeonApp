@@ -26,11 +26,15 @@ namespace DungeonLibrary
             EquippedWeapon = equippedWeapon;
 
         }
+        public Player()
+        {
+
+        }
 
 
-    // -- METHODS --
+        // -- METHODS --
 
-    public override string ToString()
+        public override string ToString()
         {
             return base.ToString() + "\nRace: " + CharacterRace + "\nWeapon: " + EquippedWeapon + "\n";
         }
